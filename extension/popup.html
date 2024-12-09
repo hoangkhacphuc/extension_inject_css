@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Config</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h3>Configure WebSocket</h3>
+    <form id="configForm">
+        <label for="wsPort">WebSocket Port:</label>
+        <input type="number" id="wsPort" placeholder="e.g., 24021" value="24021" required>
+
+        <label for="targetWebsite">Target Website:</label>
+        <input type="url" id="targetWebsite" placeholder="e.g., https://example.com" required>
+
+        <button type="submit">Save</button>
+    </form>
+    <p id="status" style="color: green; display: none;">Settings saved!</p>
+
+    <script src="popup.js"></script>
+</body>
+</html>

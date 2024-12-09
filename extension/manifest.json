@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "Live CSS Updater",
+    "version": "1.0",
+    "description": "Automatically update CSS on your page without reloading.",
+    "icons": {
+        "16": "./logo/css_16.png",
+        "32": "./logo/css_32.png",
+        "64": "./logo/css_64.png",
+        "128": "./logo/css_128.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "tabs",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' ; object-src 'self'"
+    }
+}
