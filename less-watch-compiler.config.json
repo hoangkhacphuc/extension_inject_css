@@ -1,5 +1,6 @@
 {
     "watchFolder": "./assets/style",
     "outputFolder": "./assets/build",
-    "mainFile": "module.less"
+    "mainFile": "module.less",
+    "watchFiles": true
 }

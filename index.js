@@ -36,7 +36,7 @@ wss.on("connection", (ws) => {
     // Gửi thông điệp khi file CSS thay đổi
     watcher.on("change", (filePath) => {
         console.log(`File changed: ${filePath}`);
-        ws.send(pathWeb+filePath);
+        ws.send(pathWeb+MAIN_CSS);
     });
 });
 
