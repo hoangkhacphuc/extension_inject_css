@@ -1,8 +1,19 @@
 // Lấy dữ liệu từ localStorage (wsPort, targetWebsite) để gắn vào JS dưới
-chrome.storage.local.get(["wsPort", "targetWebsite"], (result) => {
+chrome.storage.local.get(["wsPort", "targetWebsite", "turnOn"], (result) => {
     const wsPort = result.wsPort || 24021;
     const targetWebsite = result.targetWebsite || "http://localhost:3000";
+    const turnOn = result.turnOn || false;
+    
     const socketUrl = `ws://localhost:${wsPort}`;
+
+    // Nếu chưa bật chức năng thì không thực hiện gì
+    if (!turnOn) {
+        return;
+    }
+
+    // In ra thông báo đã bật chức năng chữ màu xanh
+    console.log("%cExtension import style is turned on", "color: green");
+    
 
     // Lấy domain của trang web hiện tại có trùng với targetWebsite không
     if (!window.location.href.startsWith(targetWebsite)) {
@@ -18,8 +29,12 @@ chrome.storage.local.get(["wsPort", "targetWebsite"], (result) => {
     };
 
     socket.onmessage = (event) => {
-        const cssPath = event.data;
-        injectCSS(cssPath);
+        try {
+            const cssPath = event.data;
+            injectCSS(cssPath);
+        } catch (error) {
+            console.error("Error injecting CSS: ", error);
+        }
     };
 
     socket.onclose = () => {

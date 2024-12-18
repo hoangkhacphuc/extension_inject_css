@@ -10,10 +10,10 @@ body {
     width: 300px;
 }
 label {
-    display: block;
+    display: inline-block;
     margin-top: 10px;
 }
-input {
+input[type="number"], input[type="text"], input[type="url"] {
     width: 100%;
     padding: 5px;
     margin-top: 5px;
@@ -21,6 +21,12 @@ input {
     border: 1px solid #ccc;
     outline: none;
     padding: 7px 10px;
+}
+input[type="number"]:focus, input[type="text"]:focus, input[type="url"]:focus {
+    border-color: #007bff;
+}
+input[type="checkbox"] {
+    transform: translate(5px, 3px);
 }
 button {
     margin-top: 10px;
@@ -34,4 +40,10 @@ button {
 }
 button:hover {
     background-color: #0056b3;
+}
+.status {
+    color: green; 
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
 }
