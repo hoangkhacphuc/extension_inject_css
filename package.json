@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js --port=24021",
     "less": "less-watch-compiler",
     "sass": "sass --watch assets/style:assets/build"
   },
